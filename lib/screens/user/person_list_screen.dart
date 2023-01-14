@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_redux_example/screens/user/person.dart';
-import 'package:flutter_redux_example/screens/user/user_list_action.dart';
+import 'package:flutter_redux_example/screens/user/person_list_action.dart';
 import 'package:redux/redux.dart';
-import 'user_state.dart' as state;
+import 'person_state.dart' as state;
 
 class UserListScreen extends StatelessWidget {
   const UserListScreen({super.key});
@@ -25,7 +25,7 @@ class UserListScreen extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                store.dispatch(const LoadUserAction());
+                store.dispatch(const LoadPersonAction());
               },
               child: const Text('Load person'),
             ),

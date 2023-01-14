@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux_example/screens/user/user_list_screen.dart';
+import 'package:flutter_redux_example/screens/detailed_users/detailed_users_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: const UserListScreen(),
+      home: const DetailedUsersScreen(),
     );
   }
 }

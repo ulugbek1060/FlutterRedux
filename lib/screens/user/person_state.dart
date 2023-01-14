@@ -1,5 +1,5 @@
 import 'package:flutter_redux_example/screens/user/person.dart';
-import 'package:flutter_redux_example/screens/user/user_list_action.dart';
+import 'package:flutter_redux_example/screens/user/person_list_action.dart';
 import 'package:redux/redux.dart';
 
 class State {
@@ -20,19 +20,19 @@ class State {
 }
 
 State reducer(State oldState, action) {
-  if (action is LoadUserAction) {
+  if (action is LoadPersonAction) {
     return State(
       isLoading: true,
       users: null,
       error: null,
     );
-  } else if (action is SuccessfullyUserFetchedAction) {
+  } else if (action is SuccessfullyPersonFetchedAction) {
     return State(
       isLoading: false,
-      users: action.users,
+      users: action.persons,
       error: null,
     );
-  } else if (action is FetchFailedUserAction) {
+  } else if (action is FetchFailedPersonAction) {
     return State(
       isLoading: false,
       users: null,
@@ -47,11 +47,11 @@ void loadUserMiddleware(
   action,
   NextDispatcher next,
 ) {
-  if (action is LoadUserAction) {
-    getPerson().then((users) {
-      store.dispatch(SuccessfullyUserFetchedAction(users: users));
+  if (action is LoadPersonAction) {
+    getPerson().then((persons) {
+      store.dispatch(SuccessfullyPersonFetchedAction(persons: persons));
     }).catchError((error) {
-      store.dispatch(FetchFailedUserAction(error: error));
+      store.dispatch(FetchFailedPersonAction(error: error));
     });
   }
   next(action);
