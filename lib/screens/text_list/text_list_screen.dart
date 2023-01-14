@@ -3,7 +3,7 @@ import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' as hooks;
 
-import 'actions.dart' as act;
+import 'text_list_action.dart' as act;
 
 extension AddRemoveItems<T> on Iterable<T> {
   Iterable<T> operator +(T other) => followedBy([other]);
